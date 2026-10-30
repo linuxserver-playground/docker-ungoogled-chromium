@@ -10,6 +10,9 @@ upstream:
   version:
     type: github_release
     repo: ungoogled-software/ungoogled-chromium-portablelinux
+    require_assets:
+      - asset: '-x86_64_linux\.tar\.xz$'
+      - asset: '-arm64_linux\.tar\.xz$'
   notes:
     type: github_release
     repo: ungoogled-software/ungoogled-chromium-portablelinux

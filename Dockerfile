@@ -39,7 +39,7 @@ RUN \
     UGC_VERSION=$(curl -sX GET "https://api.github.com/repos/ungoogled-software/ungoogled-chromium-portablelinux/releases/latest" \
     | jq -r '.tag_name'); \
   fi && \
-  RELEASE_URL=$(curl -sX GET "https://api.github.com/repos/ungoogled-software/ungoogled-chromium-portablelinux/releases/latest"| jq -r '.url') && \
+  RELEASE_URL="https://api.github.com/repos/ungoogled-software/ungoogled-chromium-portablelinux/releases/tags/${UGC_VERSION}" && \
   DOWNLOAD_URL=$(curl -sX GET "${RELEASE_URL}" | jq -r 'first(.assets[].browser_download_url | select(test("-x86_64_linux.tar.xz")))') && \
   curl -o \
     /tmp/ugc.tar.xz -L \
